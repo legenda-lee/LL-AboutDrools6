@@ -1,0 +1,23 @@
+package com.legenda.lee.study_drools6
+
+import com.legenda.lee.study_drools6.studydrools.fact.RuleEngineContext;
+import com.legenda.lee.study_drools6.studydrools.util.CommonUtil;
+
+rule rule_eventCode_packageId_ruleId_conditionId5
+salience 1000
+when
+    $ruleEngineContext : RuleEngineContext(inputRiskFeatureKeyValue.get("address1") matches "杭.*");
+then
+    $ruleEngineContext.getOutputRiskFeatureKeyValue().put("output_feature_7", "通过");
+    $ruleEngineContext.insertLog("自己组装7");
+end
+
+rule rule_eventCode_packageId_ruleId_conditionId6
+salience 999
+when
+    $ruleEngineContext : RuleEngineContext(inputRiskFeatureKeyValue.get("address1") not matches "杭.*");
+then
+    $ruleEngineContext.getOutputRiskFeatureKeyValue().put("output_feature_8", "通过");
+    $ruleEngineContext.insertLog("自己组装8");
+end
+

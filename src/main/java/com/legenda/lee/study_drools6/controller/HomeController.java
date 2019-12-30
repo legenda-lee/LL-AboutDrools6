@@ -5,7 +5,9 @@ import com.legenda.lee.study_drools6.studydrools.kernel.RuleEngineKernel;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,11 +36,17 @@ public class HomeController {
     public String rule(@PathVariable String rulePackageId) {
         // 规则执行上下文
         Map<String, Object> inputRiskFeatureKeyValue = new HashMap<>();
-        inputRiskFeatureKeyValue.put("input_feature_xxx", 0.6);
+        inputRiskFeatureKeyValue.put("input_feature_xxx", 0.4);
         inputRiskFeatureKeyValue.put("input_feature_yyy", "连连");
+        inputRiskFeatureKeyValue.put("address1", "杭州");
+
+        List<String> addressList  = new ArrayList<>();
+        addressList.add("杭州");
+        addressList.add("上海");
 
         RuleEngineContext context = new RuleEngineContext();
         context.setInputRiskFeatureKeyValue(inputRiskFeatureKeyValue);
+        context.setAddressList(addressList);
 
         droolsKernel.invoke(rulePackageId, context);
 

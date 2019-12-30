@@ -20,9 +20,10 @@ public class RuleEngineContext {
 
     private Map<String, Object> outputRiskFeatureKeyValue = new HashMap<>();
 
+    private List<String> addressList = new ArrayList<>();
 
+    // 命中结果日志记录
     private List<String> logList = new ArrayList<>();
-
 
     public void insertLog(String log) {
         this.logList.add(log);

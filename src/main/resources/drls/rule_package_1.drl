@@ -8,7 +8,7 @@ salience 1000
 when
     $ruleEngineContext : RuleEngineContext(inputRiskFeatureKeyValue.get("input_feature_xxx") <= 0.5 )
 then
-    $ruleEngineContext.getOutputRiskFeatureKeyValue().put("output_feature_xxx", "通过");
+    $ruleEngineContext.getOutputRiskFeatureKeyValue().put("output_feature_1", "通过");
     $ruleEngineContext.insertLog("自己组装1");
 end
 
@@ -17,7 +17,7 @@ salience 999
 when
     $ruleEngineContext : RuleEngineContext(CommonUtil.isContainsStr("连连Company", inputRiskFeatureKeyValue.get("input_feature_yyy")) )
 then
-    $ruleEngineContext.getOutputRiskFeatureKeyValue().put("output_feature_yyy", "通过");
+    $ruleEngineContext.getOutputRiskFeatureKeyValue().put("output_feature_2", "通过");
     $ruleEngineContext.insertLog("自己组装2");
 end
 
