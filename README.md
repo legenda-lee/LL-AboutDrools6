@@ -10,13 +10,13 @@
 - rule_package_1.drl 测试的是比较操作符 >、 >=、 <、 <=、 = =、 !=以及调用外部util类的方法，util一般用来格式化特征指标值。
 - 测试方式：http://localhost:8080/home/run/1
 - -----------------------------------------------------------------------
-- rule_package_2.drl 测试的是比较操作符如contains、 not contains。
+- rule_package_2.drl 测试的是比较操作符contains、 not contains。
 - 测试方式：http://localhost:8080/home/run/2
 - -----------------------------------------------------------------------
-- rule_package_3.drl 测试的是比较操作符如memberof、not memberof。
+- rule_package_3.drl 测试的是比较操作符memberof、not memberof。
 - 测试方式：http://localhost:8080/home/run/3
 - -----------------------------------------------------------------------
-- rule_package_4.drl 测试的是比较操作符如matches、not matches。
+- rule_package_4.drl 测试的是比较操作符matches、not matches。
 - 测试方式：http://localhost:8080/home/run/4
 - -----------------------------------------------------------------------
 - 刷新加载所有规则包drl文件的入口
