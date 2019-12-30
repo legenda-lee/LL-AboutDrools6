@@ -6,6 +6,7 @@
 - 3、系统初始化加载各个drl文件到内存。
 - 4、当规则包下有规则进行修改时，可以触发加载该规则包的刷新重加载。
 
-##测试方式：其中1为规则包ID
-- http://localhost:8080/home/run/1
+## 测试方式
+- rule_package_1.drl 测试的是数字比较符如<、>、=等以及调用外部util类的方法。
+- 测试方式：http://localhost:8080/home/run/1
 - http://localhost:8080/home/run/refreshAll
