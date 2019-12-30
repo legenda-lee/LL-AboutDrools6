@@ -6,7 +6,7 @@ import com.legenda.lee.study_drools6.studydrools.util.CommonUtil;
 rule rule_eventCode_packageId_ruleId_conditionId1
 salience 1000
 when
-    $ruleEngineContext : RuleEngineContext(inputRiskFeatureKeyValue.get("input_feature_xxx") <= 0.5 )
+    $ruleEngineContext : RuleEngineContext(inputRiskFeatureKeyValue.get("input_feature_xxx") <= 0.5 || inputRiskFeatureKeyValue.get("input_feature_xxx") <= 0.1)
 then
     $ruleEngineContext.getOutputRiskFeatureKeyValue().put("output_feature_1", "通过");
     $ruleEngineContext.insertLog("自己组装1");
