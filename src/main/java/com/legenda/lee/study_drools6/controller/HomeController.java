@@ -45,4 +45,11 @@ public class HomeController {
         return "yes";
     }
 
+    @RequestMapping(value = "/refreshAll", method = RequestMethod.GET)
+    @ResponseBody
+    public String refreshAll() {
+        droolsKernel.refreshAll();
+        return "yes";
+    }
+
 }
