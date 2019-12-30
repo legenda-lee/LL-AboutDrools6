@@ -1,23 +1,23 @@
 package com.suning.csi.aic.model
 
-import com.legenda.lee.studydrools2.RuleEngineContext;
-import com.legenda.lee.studydrools2.CommonUtil;
+import com.legenda.lee.study_drools6.studydrools.fact.RuleEngineContext;
+import com.legenda.lee.study_drools6.studydrools.util.CommonUtil;
 
 rule rule_eventCode_packageId_ruleId_conditionId1
 salience 1000
 when
-    $context : RuleEngineContext(inputRiskFeatureKeyValue.get("input_feature_xxx") <= 0.5 )
+    $ruleEngineContext : RuleEngineContext(inputRiskFeatureKeyValue.get("input_feature_xxx") <= 0.5 )
 then
-    $context.getOutputRiskFeatureKeyValue().put("output_feature_xxx", "通过");
-    $context.insertLog("自己组装1");
+    $ruleEngineContext.getOutputRiskFeatureKeyValue().put("output_feature_xxx", "通过");
+    $ruleEngineContext.insertLog("自己组装1");
 end
 
-//rule rule_eventCode_packageId_ruleId_conditionId2
-//salience 999
-//when
-//    context : RuleEngineContext(CommonUtil.isContainsStr("连连数字有限公司", context.getInputRiskFeatureKeyValue().get("input_feature_yyy")) )
-//then
-//    context.getOutputRiskFeatureKeyValue().put("output_feature_yyy", "通过");
-//    context.insertLog("自己组装2");
-//end
+rule rule_eventCode_packageId_ruleId_conditionId2
+salience 999
+when
+    $ruleEngineContext : RuleEngineContext(CommonUtil.isContainsStr("连连Company", inputRiskFeatureKeyValue.get("input_feature_yyy")) )
+then
+    $ruleEngineContext.getOutputRiskFeatureKeyValue().put("output_feature_yyy", "通过");
+    $ruleEngineContext.insertLog("自己组装2");
+end
 

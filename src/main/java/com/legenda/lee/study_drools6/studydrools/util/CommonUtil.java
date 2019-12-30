@@ -1,5 +1,5 @@
 
-package com.legenda.lee.studydrools2;
+package com.legenda.lee.study_drools6.studydrools.util;
 
 
 /**
