@@ -1,0 +1,50 @@
+// 模板文件固定标识
+template header
+
+// 模板文件使用参数
+condition
+ruleId
+ruleCode
+ruleName
+displayName
+riskLevel
+score
+output
+rhsMethod
+lhsCustCondition
+theSalience
+isLoop
+
+
+package com.xxx.rules;
+
+
+// 模板开头
+template "rule_package_template"
+
+rule "rule-@{rulePackageId}-@{ruleId}"
+salience @{salience}
+lock-on-active true
+
+when
+    m:BaseFactInfo(@{condition},$score:(@{score}),$output:(@{output}));
+    mResult:RiskExecuteResultModel($rules:rules)
+    @{lhsCustCondition}
+then
+    if(@{ruleId}>0 && !"@{ruleCode}".startsWith("HIDDEN")){
+        RuleExecuteResultModel rule = new RuleExecuteResultModel();
+        rule.setRuleId("@{ruleId}");
+        rule.setRuleCode("@{ruleCode}");
+        rule.setRuleName("@{ruleName}");
+        rule.setDisplayName("@{displayName}");
+        rule.setRiskLevel("@{riskLevel}");
+        rule.setResult(RuleResultEnum.HIT);
+    	$rules.add(rule);
+        mResult.setRules($rules);
+    }
+	mResult.setScore(mResult.getScore()+$score);
+	@{rhsMethod}
+end
+
+// 模板结尾
+end template
