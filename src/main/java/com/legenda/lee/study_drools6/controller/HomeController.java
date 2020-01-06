@@ -37,7 +37,7 @@ public class HomeController {
         // 规则执行上下文
         Map<String, Object> inputRiskFeatureKeyValue = new HashMap<>();
         inputRiskFeatureKeyValue.put("input_feature_xxx", 0.4);
-        inputRiskFeatureKeyValue.put("input_feature_yyy", "连连");
+        inputRiskFeatureKeyValue.put("input_feature_yyy", "哈哈");
         inputRiskFeatureKeyValue.put("address1", "杭州");
 
         List<String> addressList  = new ArrayList<>();

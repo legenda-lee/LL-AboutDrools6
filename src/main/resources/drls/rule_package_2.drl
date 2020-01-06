@@ -6,7 +6,10 @@ import com.legenda.lee.study_drools6.studydrools.util.CommonUtil;
 rule rule_eventCode_packageId_ruleId_conditionId3
 salience 1000
 when
-    $ruleEngineContext : RuleEngineContext(addressList contains "杭州");
+//    $ruleEngineContext : RuleEngineContext(addressList contains "杭州" && addressList contains "上海");
+    $ruleEngineContext : RuleEngineContext();
+    $input_feature_xxx : RuleEngineContext(inputRiskFeatureKeyValue.get("input_feature_xxx") <= 0.5);
+    $input_feature_yyy : RuleEngineContext(CommonUtil.isContainsStr("哈哈Company", inputRiskFeatureKeyValue.get("input_feature_yyy")) );
 then
     $ruleEngineContext.getOutputRiskFeatureKeyValue().put("output_feature_3", "通过");
     $ruleEngineContext.insertLog("自己组装3");
